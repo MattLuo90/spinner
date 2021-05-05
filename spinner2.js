@@ -1,21 +1,11 @@
-
-const spinner = () => {
-  setTimeout(() => {
-    process.stdout.write('\r|   ');
-  }, 100);
-  
-  setTimeout(() => {
-    process.stdout.write('\r/   ');
-  }, 300);
-  
-  setTimeout(() => {
-    process.stdout.write('\r-   ');
-  }, 500);
-  
-  setTimeout(() => {
-    process.stdout.write('\r\\   '); 
-  }, 700);
+const element = ['\r|   ','\r/   ','\r-   ',  '\r\\   ' ]
+const spinner = (arr) => {
+  for (const i in arr) {
+    setTimeout(() => {
+      process.stdout.write(arr[i]);
+    },100 + i * 200);
+  }
 }
 setInterval(() => {
-  spinner();
-},700)
+  spinner(element);
+},800)
